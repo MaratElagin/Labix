@@ -2,7 +2,9 @@ import json
 import os
 import pandas as pd
 from pathlib import Path
+from django.conf import settings
 from ninja import NinjaAPI
+from django.http import FileResponse
 from .schemas import AnalyseData, PatientData
 from .utils import process_patient_data
 
@@ -51,3 +53,11 @@ def get_patient_data(request, snils: str):
             for syndrome in patient_data.syndromes
         ],
     }
+
+@api.get("/get-patient-graph/media/{snils}.jpg")
+def get_patient_image(request, snils: str):
+    image_path = os.path.join(settings.MEDIA_ROOT, f"{snils}.jpg")
+    if not os.path.exists(image_path):
+        return {"error": "Image not found"}, 404
+
+    return FileResponse(open(image_path, 'rb'), content_type="image/jpeg")

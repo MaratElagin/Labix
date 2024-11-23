@@ -10,7 +10,6 @@ export const AnalysisDescription: React.FC = () => {
     const [analysisData, setAnalysisData] = useState<any>(null);
 
     const handleReceiveData = (data: any) => {
-        console.log('handleReceiveData');
         setAnalysisData(data);
     };
 

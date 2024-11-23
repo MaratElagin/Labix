@@ -19,14 +19,14 @@ export const Syndromes: React.FC<SyndromesProps> = ({syndromes}) => {
     return (
         <>
             <h4 style={{marginBottom: 0}}>
-                Синдромы
+                Предварительная диагностика анализов крови
             </h4>
             <TableContainer component={Paper} style={{marginBottom: '20px'}}>
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell sx={{fontWeight: 'bold'}}>Система</TableCell>
-                            <TableCell sx={{fontWeight: 'bold'}}>Проблемы</TableCell>
+                            <TableCell sx={{fontWeight: 'bold'}}>Функциональные системы</TableCell>
+                            <TableCell sx={{fontWeight: 'bold'}}>Возможные синдромы</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

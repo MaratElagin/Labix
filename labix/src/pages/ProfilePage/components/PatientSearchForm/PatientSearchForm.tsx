@@ -1,16 +1,8 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
+import {Grid2} from "@mui/material";
 import {SnilsInput} from "../SnilsInput";
 import {DecryptButton} from "../Button";
-import {Grid2} from "@mui/material";
-
-const mock = new MockAdapter(axios);
-
-// Мокаем ответ для тестирования
-mock.onGet(/get-analysis-description\/\d{3}-\d{3}-\d{3} \d{2}/).reply(200, {
-    description: 'Пример расшифровки СНИЛС'
-});
 
 interface PatientSearchFormProps {
     onReceiveData: (data: any) => void;
@@ -25,8 +17,8 @@ export const PatientSearchForm: React.FC<PatientSearchFormProps> = ({onReceiveDa
 
     const handleDecryptResponse = async () => {
         try {
-            const response = await axios.get(`/get-analysis-description/${snils}`);
-            onReceiveData(response.data); // Передаем данные в родительский компонент
+            const response = await axios.get(`http://localhost:8000/get-patient-data/${snils}`);
+            onReceiveData(response.data);
         } catch (error) {
             console.error('Ошибка при получении данных:', error);
         }

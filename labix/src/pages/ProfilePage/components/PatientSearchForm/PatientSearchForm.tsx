@@ -17,7 +17,8 @@ export const PatientSearchForm: React.FC<PatientSearchFormProps> = ({onReceiveDa
 
     const handleDecryptResponse = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/get-patient-data/${snils}`);
+            const numericSnils = snils.replace(/\D/g, '');
+            const response = await axios.get(`/get-patient-data/${numericSnils}`);
             onReceiveData(response.data);
         } catch (error) {
             console.error('Ошибка при получении данных:', error);

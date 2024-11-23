@@ -8,7 +8,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {Grid2} from "@mui/material";
 
-
 interface AnalysisTableProps {
     data: {
         analyzes: Array<{

@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import axios from 'axios';
+import { log } from 'console';
 
 interface DecryptButtonProps {
     snils: string;
@@ -11,7 +12,8 @@ export const DecryptButton: React.FC<DecryptButtonProps> = ({snils, onReceiveDat
     const handleDecryptResponse = async () => {
         try {
             const numericSnils = snils.replace(/\D/g, '');
-            const response = await axios.get(`/get-patient-data/${numericSnils}`);
+            console.log(numericSnils);
+            const response = await axios.get(`/api/get-patient-data/${numericSnils}`);
             onReceiveData(response.data);
         } catch (error) {
             console.error('Ошибка при получении данных:', error);

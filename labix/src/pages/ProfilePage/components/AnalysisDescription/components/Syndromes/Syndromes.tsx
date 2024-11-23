@@ -7,6 +7,7 @@ import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import Paper from "@mui/material/Paper";
 
+
 interface SyndromesProps {
     syndromes: Array<{
         system: string;

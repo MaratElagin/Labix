@@ -8,14 +8,15 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {Grid2} from "@mui/material";
 
+
 interface AnalysisTableProps {
     data: {
-        analysis: Array<{
-            Маркеры: string;
-            Значение: number;
-            Норма: string;
-            'Ед.изм.': string;
-            Отклонение: string | null;
+        analyzes: Array<{
+            marker: string;
+            value: number;
+            normal: string;
+            unitOfMeasurement: string;
+            problem: string | null;
         }>;
     } | null;
 }
@@ -42,7 +43,7 @@ export const AnalysisTable: React.FC<AnalysisTableProps> = ({data}) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {data.analysis.map((row, index) => (
+                        {data.analyzes.map((row, index) => (
                             <TableRow
                                 key={index}
                             >
@@ -55,14 +56,14 @@ export const AnalysisTable: React.FC<AnalysisTableProps> = ({data}) => {
                                         textOverflow: 'ellipsis',
                                         maxWidth: 500,
                                     }}
-                                    title={row.Маркеры}
+                                    title={row.marker}
                                 >
-                                    {row.Маркеры}
+                                    {row.marker}
                                 </TableCell>
-                                <TableCell align="left">{row.Значение}</TableCell>
-                                <TableCell align="left">{row.Норма}</TableCell>
-                                <TableCell align="left">{row['Ед.изм.']}</TableCell>
-                                <TableCell align="left">{row.Отклонение || 'Нет'}</TableCell>
+                                <TableCell align="left">{row.value}</TableCell>
+                                <TableCell align="left">{row.normal}</TableCell>
+                                <TableCell align="left">{row["unitOfMeasurement"]}</TableCell>
+                                <TableCell align="left">{row.problem || 'Нет'}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

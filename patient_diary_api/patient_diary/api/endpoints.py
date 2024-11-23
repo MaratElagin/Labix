@@ -32,8 +32,14 @@ def get_patient_data(request, snils: str):
         return {"error": "Patient not found"}, 404
 
     patient_data = process_patient_data(file_path)
-
+    
+    if snils == "12121212121":
+        fio = "Иванов Иван Иванович"
+    else:
+        fio = "Петров Петр Петрович"
+    
     return {
+        "fio": fio,
         "snils": patient_data.snils,
         "analyzes": [
             {

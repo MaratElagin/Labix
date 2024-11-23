@@ -17,7 +17,7 @@ class AnalyseData(BaseModel):
 
 
 class PatientData(BaseModel):
-    # fio: str
+    fio: str = ""
     snils: str
     analyzes: list[AnalyseData]
     syndromes: Optional[list[Syndrome]]
@@ -25,7 +25,7 @@ class PatientData(BaseModel):
     class Config:
         json_schema_extra = {
             "example": {
-                # "fio": "Иванов Иван Иванович",
+                "fio": "Иванов Иван Иванович",
                 "snils": "11142234",
                 "analyzes": [
                     {

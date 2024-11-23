@@ -70,6 +70,7 @@ def extract_conditions(res, filtered_df):
 
     return output
 
+
 def merge_data(data, filtered_df, res):
     filtered_df = filtered_df[filtered_df["Маркеры"].isin(data.keys())].copy()
 
@@ -117,6 +118,7 @@ def process_files(data_path, filtered_data_path, marker_ranges_path):
     # Возвращаем результаты
     return output, merged_df
 
+
 DATA_STORAGE_FILE = Path("./data")
 FILTERED_DATA_PATH = Path("./data/filtered_data_with_sex.xlsx")
 MARKER_RANGES_PATH = Path("./data/marker_ranges.json")
@@ -126,5 +128,11 @@ MARKER_RANGES_PATH = Path("./data/marker_ranges.json")
 # marker_ranges_path = MARKER_RANGES_PATH
 
 # output, merged_data = process_files(client_1, filtered_data_path, marker_ranges_path)
+
+# # with open(marker_ranges_path, "r") as f:
+# #         marker_ranges = json.load(
+# #             f
+# #         )
+# # print(check(client_1, marker_ranges))
 
 # print("Output:", output)
